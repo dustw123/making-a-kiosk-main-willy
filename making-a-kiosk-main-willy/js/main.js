@@ -45,23 +45,61 @@ menu = {
 
 
 for(key in menu){
-    let menuName = document.createElement('p');
-    menuName.className = 'menu_name';
-    menuName.innerText = key,menu[key].name;
 
-// console.log(key,menu[key]);
-console.log(menuName);
+    let ul = document.createElement('ul');
+    ul.className = 'menu_area';
 
 
+    for( let i = 0; i < menu[key].length; i++){
+
+        let li = document.createElement('li');
+        li.className = 'menu';
+
+        let menuName = document.createElement('p');
+        menuName.className = 'menu_name';
+        menuName.innerText = menu[key][i].name;
+        
+
+        let menuPrice = document.createElement('p');
+        menuPrice.className = 'menu_price';
+        menuPrice.innerText = menu[key][i].price;
+        
+        li.appendChild(menuName);
+        li.appendChild(menuPrice);
+
+        ul.appendChild(li);
+
+
+        // 스코프 확인!!
+    }
+
+    // console.log(ul);
+
+
+} //for in 끝
+
+/*=================탭 선택 후 리스트 매치시켜서 display================*/
+
+// 1.for문으로 index값 넣고 매치 시켜주는 방식
+// const tab = document.getElementById('tab');
+// let tabList = document.createElement('li');
+// tabList.className = 'tab';
+
+
+// 2.각 tab에 ul의 class 매치 시켜주는 방식
+
+let menuCoffee = document.getElementById('menu_coffee');
+menuCoffee.appendChild(ul);
+
+console.log(menuCoffee);
+
+menuCoffee.onclick = function() {
+    if (document.getElementById("menu_coffee").checked){
+    modal.style.display = "none";
+    } else {
+    modal.style.display = "block";
+    }
 }
-
-
-		//key를 받는 변수명은 임의변경 가능
-        //in 객체명
-        // for (key in book) {
-        //     console.log(key, book[key]);
-        //   }
-
 
 
 
