@@ -14,9 +14,9 @@
             <section class="sect__left">
                 <nav class="menu_tabs">
                     <ul id="tab">
-                        <li class="tab tab_coffee" onclick="chooseMenuTab()">Coffee_test</li>
-                        <li class="tab tab_tea" onclick="chooseMenuTab()">Tea</li>
-                        <li class="tab tab_sandwich" onclick="chooseMenuTab()">Sandwich</li>
+                        <li class="tab tab_coffee" id="tab_menu_coffee" onclick="showMenu(1)">Coffee</li>
+                        <li class="tab tab_tea" id="tab_menu_tea" onclick="showMenu(2)">Tea</li>
+                        <li class="tab tab_sandwich" id="tab_menu_sandwich" onclick="showMenu(3)">Sandwich</li>
                     </ul>
                 </nav>
                 <div class="left_content" id="tabList">
@@ -63,7 +63,7 @@
                         </li> -->
                     </ul>
 
-                    <ul class="wrap__left menu_area menu_tea">
+                    <ul class="wrap__left menu_area menu_tea" id="menu_tea">
                         <!-- <li class="menu">
                             <p class="menu_name">얼그레이 </p>
                             <p class="menu_price">3,000 원</p>
@@ -122,7 +122,7 @@
                         </li> -->
                     </ul>
 
-                    <ul class="wrap__left menu_area menu_sandwich">
+                    <ul class="wrap__left menu_area menu_sandwich" id="menu_sandwich">
                         <!-- <li class="menu">
                             <p class="menu_name">잠봉뵈르</p>
                             <p class="menu_price">6,000 원</p>

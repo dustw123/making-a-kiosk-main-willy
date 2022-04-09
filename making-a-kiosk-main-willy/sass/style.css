@@ -229,13 +229,14 @@ body .ir_su {
 }
 .wrap .wrap__sects .sect__left .left_content .menu_area {
   overflow-y: scroll;
+  display: none;
 }
-.wrap .wrap__sects .sect__left .left_content .menu_tea {
+/* .wrap .wrap__sects .sect__left .left_content .menu_tea {
   display: none;
 }
 .wrap .wrap__sects .sect__left .left_content .menu_sandwich {
   display: none;
-}
+} */
 .wrap .wrap__sects .sect__right {
   width: 40%;
   height: 100%;

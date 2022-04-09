@@ -43,7 +43,6 @@ menu = {
 // console.log(menu);
 // console.log(menu.menuCoffee[3]);
 
-
 for(key in menu){
 
     let ul = document.createElement('ul');
@@ -69,38 +68,48 @@ for(key in menu){
 
         ul.appendChild(li);
 
+        // let menuCoffeeTab = document.getElementById('tab_menu_coffee');
+        // let menuTeaTab = document.getElementById('tab_menu_tea');
+        // let menuSandwichTab = document.getElementById('tab_menu_sandwich');
+
+        let menuCoffee = document.getElementById('menu_coffee');
+        let menuTea = document.getElementById('menu_tea');
+        let menuSandwich = document.getElementById('menu_sandwich');
 
         // 스코프 확인!!
+
+        /*switch문이란 ? 
+            case를 만들어서 보여주는 것
+            현재 case 3개가 필요하다. 
+        */
+        function showMenu(subMenu){
+
+            switch(subMenu){
+                case 1: 
+                menuCoffee.style.display = "block";
+                break;
+
+                case 2:
+                menuTea.style.display = "block";  
+                break;
+
+                case 3:
+                menuSandwich.style.display = "block";  
+                break;
+            }
+        }
+        showMenu();
+        console.log(showMenu);
+
     }
 
     // console.log(ul);
 
 
+
+
+
 } //for in 끝
-
-/*=================탭 선택 후 리스트 매치시켜서 display================*/
-
-// 1.for문으로 index값 넣고 매치 시켜주는 방식
-// const tab = document.getElementById('tab');
-// let tabList = document.createElement('li');
-// tabList.className = 'tab';
-
-
-// 2.각 tab에 ul의 class 매치 시켜주는 방식
-
-let menuCoffee = document.getElementById('menu_coffee');
-menuCoffee.appendChild(ul);
-
-console.log(menuCoffee);
-
-menuCoffee.onclick = function() {
-    if (document.getElementById("menu_coffee").checked){
-    modal.style.display = "none";
-    } else {
-    modal.style.display = "block";
-    }
-}
-
 
 
 } //window.onload 끝
