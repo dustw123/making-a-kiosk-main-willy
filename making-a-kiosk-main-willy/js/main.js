@@ -1,3 +1,6 @@
+
+
+
 window.onload = () => {
 
 /*================================= 01. 메뉴 객체 만들기 ====================================*/
@@ -73,8 +76,6 @@ for(key in menu){
         // let menuTeaTab = document.getElementById('tab_menu_tea');
         // let menuSandwichTab = document.getElementById('tab_menu_sandwich');
 
-
-
         // 스코프 확인!!
 
         /*switch문이란 ? 
@@ -82,25 +83,28 @@ for(key in menu){
             현재 case 3개가 필요하다. 
         */
 
-        console.log(ul);
+
     } //for문 끝
 
-
+    console.log(ul);
 } //for in 끝
-
 
 
 } //window.onload 끝
 
+
+
+
+
 function showMenu(subMenu){
+
     let menuCoffee = document.getElementsByClassName('menu_coffee');
     let menuTea = document.getElementsByClassName('menu_tea');
     let menuSandwich = document.getElementsByClassName('menu_sandwich');
 
-
     switch(subMenu){
         case 1: 
-        menuCoffee[0].style.display = "block";//ㅇㅔㄹ리먼트가 배열이라 이ㅎ게 뽑ㅏ준다.
+        menuCoffee[0].style.display = "block";//엘리먼트가 배열이라 이렇게 뽑아준다.
         break;
 
         case 2:
@@ -113,4 +117,5 @@ function showMenu(subMenu){
     }
 
 
-}
+
+} //showMenu() onclick함수 끝
