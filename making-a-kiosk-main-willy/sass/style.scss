@@ -1,6 +1,6 @@
-@use 'menu/menu';
-@use 'abstract/color';
-@use 'abstract/font';
+@import 'menu/menu';
+@import 'abstract/color';
+@import 'abstract/font';
 
 
 $max_width : 960px;
@@ -18,8 +18,8 @@ a:hover {text-decoration: none;}
 /* 폰트 초기화 */
 body, input, textarea, select, button, table 
 {
-  font-family: font.$font_family;
-  font-size: font.$font_size;
+  font-family: $font_family;
+  font-size: $font_size;
 }
 
 /* 폰트 스타일 초기화 */
@@ -63,7 +63,7 @@ table{border-collapse: collapse;}
     border : 1px solid #333;
     padding : 60px;
     box-sizing : border-box;
-    color : color.$text-color;
+    color : $text-color;
 
     .back {
         display : inline-block;
@@ -82,15 +82,15 @@ table{border-collapse: collapse;}
         text-align: center;
 
         h1 {
-            font-size : font.$font-size * 2;
-            margin-bottom : menu.$space_large;
+            font-size : $font-size * 2;
+            margin-bottom : $space_large;
         }
 
         .btn_lg {
             display : inline-block;
             width : 60%;
-            border-radius : menu.$border-radius;
-            padding : menu.$space_large;
+            border-radius : $border-radius;
+            padding : $space_large;
             box-sizing : border-box;
             cursor : pointer;
         }
@@ -107,8 +107,8 @@ table{border-collapse: collapse;}
         .btn_lg {
             display : inline-block;
             width : 100%;
-            border-radius : menu.$border-radius;
-            padding : menu.$space_large;
+            border-radius : $border-radius;
+            padding : $space_large;
             box-sizing : border-box;
             cursor : pointer;
         }
@@ -117,10 +117,10 @@ table{border-collapse: collapse;}
             width : 70%;
             text-align: center;
             .intro {
-                margin-bottom : menu.$space_large;
+                margin-bottom : $space_large;
                 
                 > p {
-                    font-size : font.$font-size * 2;
+                    font-size : $font-size * 2;
                 }
             }
         }
@@ -143,13 +143,13 @@ table{border-collapse: collapse;}
                     .tab {
                         width : 100%;
                         text-align: center;
-                        padding: menu.$space_default;
+                        padding: $space_default;
                         box-sizing : border-box;
                         cursor: pointer;
                     }
                     :hover {
-                        color : color.$hover_text_color;
-                        background-color : color.$hover_bg_color;
+                        color : $hover_text_color;
+                        background-color : $hover_bg_color;
                     }
                 }
             }
@@ -165,23 +165,25 @@ table{border-collapse: collapse;}
                     width : 100%;
                     height : 100%;
                     display : flex;
-                    justify-content: space-around;
+                    // justify-content: space-around;
+                    align-content: flex-start;
                     flex-wrap : wrap;
-                    padding : menu.$space_default;
+                    padding : $space_default;
                     box-sizing: border-box;
 
                     .menu {
-                        width : menu.$menu_width;
-                        height : menu.$menu_height;
+                        width : $menu_width;
+                        height : $menu_height;
                         box-sizing : border-box;
-                        text-align : font.$text_align;
-                        margin-bottom : menu.$space_large;
+                        text-align : $text_align;
+                        margin-bottom : $space_large;
                         display: flex;
+                        margin: 2%;
                         flex-direction: column;
                         justify-content: space-between;
                         align-items : center;
-                        border-radius : menu.$border-radius;
-                        box-shadow : menu.$menu_shadow;
+                        border-radius : $border-radius;
+                        box-shadow : $menu_shadow;
                         transition : cubic-bezier(.89,.28,.64,.99);
 
                         .menu_name {
@@ -200,7 +202,7 @@ table{border-collapse: collapse;}
 
 
                     button {
-                        margin-bottom : menu.$space_large;
+                        margin-bottom : $space_large;
                     }
 
                     > div {
@@ -209,7 +211,7 @@ table{border-collapse: collapse;}
                         align-items: center;
 
                         p {
-                            font-size : font.$font_size * 2;
+                            font-size : $font_size * 2;
                         }
                     }
                 }
@@ -234,7 +236,7 @@ table{border-collapse: collapse;}
             border-left : 1px solid #e6e6e6;
 
             .cart_title {
-                padding: menu.$space_default;
+                padding: $space_default;
                 box-sizing : border-box;
                 text-align : center;
             }
@@ -242,7 +244,7 @@ table{border-collapse: collapse;}
             .cart_content {
                 width : 100%;
                 height : 100%;
-                padding : menu.$space_default;
+                padding : $space_default;
                 box-sizing : border-box;
 
                 .wrap__cart {
@@ -253,18 +255,18 @@ table{border-collapse: collapse;}
 
                     .cart_item {
                         width : 94%;
-                        padding : menu.$space_default;
+                        padding : $space_default;
                         box-sizing : border-box;
                         margin: 0 auto;
                         margin-bottom: 16px;
                         border : 1px solid #e6e6e6;
-                        border-radius : menu.$border-radius;
+                        border-radius : $border-radius;
 
                         > div {
                             display : flex;
                             justify-content: space-between;
                             align-items: center;
-                            padding : menu.$space_small;
+                            padding : $space_small;
 
                             button {
                                 display : inline-block;
@@ -291,7 +293,7 @@ table{border-collapse: collapse;}
                         width : 100%;
                         display : flex;
                         justify-content: space-between;
-                        padding : menu.$space_default;
+                        padding : $space_default;
                         box-sizing : border-box;
                         
                         span:last-child {

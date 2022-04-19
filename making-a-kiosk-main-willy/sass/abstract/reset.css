@@ -1,0 +1,112 @@
+@charset "UTF-8";
+body {
+  /* 여백 초기화 */
+  /* a 링크 초기화 */
+  /* 폰트 초기화 */
+  /* 폰트 스타일 초기화 */
+  /* 블릿기호 초기화 */
+  /* 제목 태그 초기화 */
+  /* 버튼초기화 */
+  /* 반응형 이미지 */
+  /* clearfix */
+  /* table */
+  /* IR 효과 */
+  /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
+  /* 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고자 할 때(WA IR) */
+  /* 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트를 제공할 때 */
+}
+
+body body, body div, body ul, body li, body dl, body dd, body dt, body ol, body h1, body h2, body h3, body h4, body h5, body h6, body input, body fieldset, body legend, body p, body select,
+body table, body th, body td, body tr, body textarea, body button, body form, body figure, body figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+body body, body input, body textarea, body select, body button, body table {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body em, body address {
+  font-style: normal;
+}
+
+body em {
+  color: red;
+}
+
+body ul, body li, body ol {
+  list-style: none;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+body button {
+  border: 0;
+}
+
+body img, body video {
+  width: 100%;
+}
+
+body img {
+  width: 100%;
+  vertical-align: top;
+}
+
+body img {
+  border: 0;
+}
+
+body .clearfix:before, body .clearfix:after {
+  display: block;
+  content: '';
+  line-height: 0;
+}
+
+body .clearfix:after {
+  clear: both;
+}
+
+body table {
+  border-collapse: collapse;
+}
+
+body .ir_pm {
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+body .ir_wa {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+body .ir_su {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+/*# sourceMappingURL=reset.css.map */

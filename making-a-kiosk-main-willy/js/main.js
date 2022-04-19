@@ -49,7 +49,7 @@ menu = {
 for(key in menu){
 
     let ul = document.createElement('ul');
-    ul.className = 'menu_area';
+    ul.className = `menu_area wrap__left menu_${key}`;
     ul.id = `menu_${key}`;
 
 
@@ -86,7 +86,10 @@ for(key in menu){
 
     } //for문 끝
 
-    console.log(ul);
+    let menuWrap = document.getElementById('tabList');
+    menuWrap.appendChild(ul);
+
+    console.log(menuWrap);
 } //for in 끝
 
 
@@ -103,16 +106,23 @@ function showMenu(subMenu){
     let menuSandwich = document.getElementsByClassName('menu_sandwich');
 
     switch(subMenu){
-        case 1: 
-        menuCoffee[0].style.display = "block";//엘리먼트가 배열이라 이렇게 뽑아준다.
+        case 1:
+        menuCoffee[0].style.display = "flex";//엘리먼트가 배열이라 이렇게 뽑아준다.
+        menuTea[0].style.display = "none"; 
+        menuSandwich[0].style.display = "none";  
         break;
 
         case 2:
-        menuTea[0].style.display = "block";  
+        menuTea[0].style.display = "flex";  
+        menuSandwich[0].style.display = "none";  
+        menuCoffee[0].style.display = "none";
         break;
 
         case 3:
-        menuSandwich[0].style.display = "block";  
+        menuSandwich[0].style.display = "flex";  
+        menuCoffee[0].style.display = "none";
+        menuTea[0].style.display = "none"; 
+
         break;
     }
 
