@@ -48,15 +48,15 @@ menu = {
 
 for(key in menu){
 
-    let ul = document.createElement('ul');
-    ul.className = `menu_area wrap__left menu_${key}`;
-    ul.id = `menu_${key}`;
+    let itemWrap = document.createElement('ul');
+    itemWrap.className = `menu_area wrap__left menu_${key}`;
+    itemWrap.id = `menu_${key}`;
 
 
     for( let i = 0; i < menu[key].length; i++){
 
-        let li = document.createElement('li');
-        li.className = 'menu';
+        let itemList = document.createElement('li');
+        itemList.className = 'menu';
 
         let menuName = document.createElement('p');
         menuName.className = 'menu_name';
@@ -67,37 +67,35 @@ for(key in menu){
         menuPrice.className = 'menu_price';
         menuPrice.innerText = menu[key][i].price;
         
-        li.appendChild(menuName);
-        li.appendChild(menuPrice);
+        itemList.appendChild(menuName);
+        itemList.appendChild(menuPrice);
 
-        ul.appendChild(li);
-
-        // let menuCoffeeTab = document.getElementById('tab_menu_coffee');
-        // let menuTeaTab = document.getElementById('tab_menu_tea');
-        // let menuSandwichTab = document.getElementById('tab_menu_sandwich');
+        itemWrap.appendChild(itemList);
 
         // 스코프 확인!!
-
-        /*switch문이란 ? 
-            case를 만들어서 보여주는 것
-            현재 case 3개가 필요하다. 
-        */
-
 
     } //for문 끝
 
     let menuWrap = document.getElementById('tabList');
-    menuWrap.appendChild(ul);
+    menuWrap.appendChild(itemWrap);
 
-    console.log(menuWrap);
+    // console.log(menuWrap);
+
+
+
 } //for in 끝
 
 
-} //window.onload 끝
+} /*====================window.onload 끝 =======================*/
+
+let outputList = document.createElement('div');
+outputList.className = 'wrap__cart';
 
 
+console.log(outputList);
 
 
+/*================================= 02. 메뉴 뿌려주기 ====================================*/
 
 function showMenu(subMenu){
 
@@ -122,10 +120,17 @@ function showMenu(subMenu){
         menuSandwich[0].style.display = "flex";  
         menuCoffee[0].style.display = "none";
         menuTea[0].style.display = "none"; 
-
         break;
+
     }
 
 
-
 } //showMenu() onclick함수 끝
+
+
+
+/*================================= 03. 장바구니 담기 ====================================*/
+
+
+
+
