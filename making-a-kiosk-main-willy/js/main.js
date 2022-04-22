@@ -69,6 +69,9 @@ for(key in menu){
         
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
+        itemList.addEventListener('click', function(){
+            clickMenu( {menuClickName:menu[key][i].name, price:menu[key][i].price} )
+        });
 
         itemWrap.appendChild(itemList);
 
@@ -84,6 +87,15 @@ for(key in menu){
 
 
 } //for in 끝
+
+
+//클릭이벤트리스너 함수
+function clickMenu(e){
+    if(menu.length == 0){
+        menu.push(e);
+        console.log(menu);
+    }
+}
 
 
 } /*====================window.onload 끝 =======================*/
@@ -124,9 +136,3 @@ function showMenu(subMenu){
 
 
 
-/*================================= 03. 장바구니 담기 ====================================*/
-
-
-
-
-let outputList = document.querySelectorAll();
