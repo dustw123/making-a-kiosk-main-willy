@@ -88,11 +88,6 @@ for(key in menu){
 
 } /*====================window.onload 끝 =======================*/
 
-let outputList = document.createElement('div');
-outputList.className = 'wrap__cart';
-
-
-console.log(outputList);
 
 
 /*================================= 02. 메뉴 뿌려주기 ====================================*/
@@ -134,3 +129,4 @@ function showMenu(subMenu){
 
 
 
+let outputList = document.querySelectorAll();
