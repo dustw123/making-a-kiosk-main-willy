@@ -5,7 +5,7 @@ window.onload = () => {
 
 /*================================= 01. 메뉴 객체 만들기 ====================================*/
 
-let menu = [];
+let menuArray = [];
 
 menu = {
     coffee : [
@@ -69,11 +69,16 @@ for(key in menu){
         
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
+        console.log(menu[key][i].name);
         itemList.addEventListener('click', function(){
             clickMenu( {menuClickName:menu[key][i].name, price:menu[key][i].price} )
         });
 
+
         itemWrap.appendChild(itemList);
+
+        // console.log(itemWrap);
+        
 
         // 스코프 확인!!
 
@@ -91,9 +96,17 @@ for(key in menu){
 
 //클릭이벤트리스너 함수
 function clickMenu(e){
-    if(menu.length == 0){
-        menu.push(e);
-        console.log(menu);
+    if(menuArray.length == 0){
+        menuArray.push(e);
+        // console.log(menuArray);
+    }else{
+        const addTest = menuArray.find((addMenu) => addMenu.e === e.menuClickName);
+        // console.log(addTest);
+
+        // if(addTest === undefinde){
+        //     menuArray.push(e);
+        //     console.log(menuArray);
+        // }
     }
 }
 
