@@ -48,30 +48,34 @@ menu = {
 
 for(key in menu){
 
+    let test = menu[key];
     let itemWrap = document.createElement('ul');
     itemWrap.className = `menu_area wrap__left menu_${key}`;
     itemWrap.id = `menu_${key}`;
 
+    // console.log(test);
 
-    for( let i = 0; i < menu[key].length; i++){
+    for( let i = 0; i < test.length; i++){
 
         let itemList = document.createElement('li');
         itemList.className = 'menu';
 
         let menuName = document.createElement('p');
         menuName.className = 'menu_name';
-        menuName.innerText = menu[key][i].name;
+        menuName.innerText = test[i].name;
         
 
         let menuPrice = document.createElement('p');
         menuPrice.className = 'menu_price';
-        menuPrice.innerText = menu[key][i].price;
+        menuPrice.innerText = test[i].price;
         
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
-        console.log(menu[key][i].name);
+
+        // console.log(test[i].name);
+
         itemList.addEventListener('click', function(){
-            clickMenu( {menuClickName:menu[key][i].name, price:menu[key][i].price} )
+            clickMenu( {menuClickName:test[i].name, price:test[i].price, num : 1} )
         });
 
 
@@ -96,17 +100,19 @@ for(key in menu){
 
 //클릭이벤트리스너 함수
 function clickMenu(e){
+
+    console.log(e);
     if(menuArray.length == 0){
         menuArray.push(e);
-        // console.log(menuArray);
+        console.log(menuArray);
     }else{
-        const addTest = menuArray.find((addMenu) => addMenu.e === e.menuClickName);
-        // console.log(addTest);
+        const addTest = menuArray.find((addMenu) => addMenu.menuClickName === e.menuClickName);
+        console.log(addTest);
 
-        // if(addTest === undefinde){
-        //     menuArray.push(e);
-        //     console.log(menuArray);
-        // }
+        if(addTest === undefined){
+            menuArray.push(e);
+            console.log(menuArray);
+        }
     }
 }
 
