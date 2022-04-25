@@ -9,37 +9,37 @@ let menuArray = [];
 
 menu = {
     coffee : [
-        { name : "아메리카노", price : 3000, num : 1 },
-        { name : "아이스 아메리카노", price : 3500, num : 1 },
-        { name : "카페라떼", price : 4000, num : 1 },
-        { name : "아이스 카페라떼", price : 4500, num : 1 },
-        { name : "바닐라빈라떼", price : 4000, num : 1},
-        { name : "아이스 바닐라빈라떼", price : 4000, num : 1},
-        { name : "캐러멜라떼", price : 4500, num : 1 },
-        { name : "아이스 캐러멜라떼", price : 4500, num : 1 },
-        { name : "카페모카", price : 4500, num : 1 },
-        { name : "아이스 카페모카", price : 4500, num : 1 }
+        { id:1, name : "아메리카노", price : 3000, num : 1 },
+        { id:2, name : "아이스 아메리카노", price : 3500, num : 1 },
+        { id:3, name : "카페라떼", price : 4000, num : 1 },
+        { id:4, name : "아이스 카페라떼", price : 4500, num : 1 },
+        { id:5, name : "바닐라빈라떼", price : 4000, num : 1},
+        { id:6, name : "아이스 바닐라빈라떼", price : 4000, num : 1},
+        { id:7, name : "캐러멜라떼", price : 4500, num : 1 },
+        { id:8, name : "아이스 캐러멜라떼", price : 4500, num : 1 },
+        { id:9, name : "카페모카", price : 4500, num : 1 },
+        { id:10, name : "아이스 카페모카", price : 4500, num : 1 }
     ],
     tea: [
-        { name : "얼그레이", price : 3000, num : 1 },
-        { name : "아이스 얼그레이", price : 3500, num : 1 },
-        { name : "잉글리쉬브랙퍼스트", price : 3000, num : 1 },
-        { name : "아이스 잉글리쉬브랙퍼스트", price : 3500, num : 1 },
-        { name : "애플티", price : 3000, num : 1},
-        { name : "아이스 애플티", price : 3500, num : 1},
-        { name : "캐모마일", price : 3000, num : 1},
-        { name : "아이스 캐모마일", price : 3500, num : 1},
-        { name : "루이보스", price : 3000, num : 1},
-        { name : "아이스 루이보스", price : 3500, num : 1},
-        { name : "진저레몬", price : 3000, num : 1},
-        { name : "아이스 진저레몬", price : 3500, num : 1},
-        { name : "핫초콜릿", price : 3000, num : 1},
-        { name : "아이스 초콜릿", price : 3500, num : 1}
+        { id:11, name : "얼그레이", price : 3000, num : 1 },
+        { id:12, name : "아이스 얼그레이", price : 3500, num : 1 },
+        { id:13, name : "잉글리쉬브랙퍼스트", price : 3000, num : 1 },
+        { id:14, name : "아이스 잉글리쉬브랙퍼스트", price : 3500, num : 1 },
+        { id:15, name : "애플티", price : 3000, num : 1},
+        { id:16, name : "아이스 애플티", price : 3500, num : 1},
+        { id:17, name : "캐모마일", price : 3000, num : 1},
+        { id:18, name : "아이스 캐모마일", price : 3500, num : 1},
+        { id:19, name : "루이보스", price : 3000, num : 1},
+        { id:20, name : "아이스 루이보스", price : 3500, num : 1},
+        { id:21, name : "진저레몬", price : 3000, num : 1},
+        { id:22, name : "아이스 진저레몬", price : 3500, num : 1},
+        { id:23, name : "핫초콜릿", price : 3000, num : 1},
+        { id:24, name : "아이스 초콜릿", price : 3500, num : 1}
     ],
     sandwich: [
-        { name : "잠봉뵈르", price : 6000, num : 1 },
-        { name : "치킨클럽샌드위치", price : 6500, num : 1 },
-        { name : "BLT샌드위치", price : 6500, num : 1}
+        { id:25, name : "잠봉뵈르", price : 6000, num : 1 },
+        { id:26, name : "치킨클럽샌드위치", price : 6500, num : 1 },
+        { id:27, name : "BLT샌드위치", price : 6500, num : 1}
     ]
 };
 
@@ -75,14 +75,8 @@ for(key in menu){
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
 
-        //우측 선택 메뉴 리스트 만들기
-        let showClickItem = document.createElement('div');
-        showClickItem.getElementsByClassName('wrap__cart');
-        showClickItem.innerText = chooseItem;
 
-        //우측 선택 메뉴 리스트에 정보 넣기
-        let showItemName = document.createElement('span');
-        showItemName.innerText = chooseItem[i];
+
     
         // showClickItem.appendChild(showItemName);
         
@@ -90,8 +84,8 @@ for(key in menu){
         console.log(chooseItem[i].name, chooseItem[i].price, chooseItem[i].num);
 
         itemList.addEventListener('click', function(){
-            clickMenu( {menuClickName:chooseItem[i].name, price:chooseItem[i].price, num : 1});
-            showChooseMenu();
+            clickMenu( {menuClickId:chooseItem[i].id, menuClickName:chooseItem[i].name, price:chooseItem[i].price, num : 1});
+            // showChooseMenu();
         });
 
 
@@ -121,12 +115,15 @@ function clickMenu(e){
     if(menuArray.length == 0){
         menuArray.push(e);
         console.log(menuArray);
+        showChooseMenu(e)
+
     }else{
         const addchooseItem = menuArray.find((addMenu) => addMenu.menuClickName === e.menuClickName);
         console.log(addchooseItem);
         if(addchooseItem === undefined){
             menuArray.push(e);
             console.log(menuArray);
+            showChooseMenu(e)
         }
     }
 }//클릭이벤트리스너 함수 끝
@@ -136,13 +133,47 @@ function clickMenu(e){
 
 //선택 메뉴 Dom 출력함수
 function showChooseMenu(select){
+    // console.log(select);
+    //우측 선택 메뉴 리스트 만들기
+    let showClickItem = document.getElementsByClassName('wrap__cart');
 
 
+
+    let html = `
+                <div class="cart_item ${select.menuClickId}_cart ">
+                    <div class="top">
+                        <span>${select.menuClickName}</span>
+                        <button type="button" class="delete">X</button>
+                    </div>
+                    <div class="middle">
+                        <span>수량</span>
+                        <div class="wrap__quantity">
+                            <button type="button" class="plus" onclick={plus(${select.menuClickId}_cart)}>+</button>
+                            <span class="item_quantity">${select.num}</span>
+                            <button type="button" class="minus">-</button>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <span>가격</span>
+                        <span>${select.price}원</span>
+                    </div>
+                </div>
+    `;
+
+showClickItem[0].insertAdjacentHTML("beforeend",html);
+
+// console.log(html);
 }//선택 메뉴 Dom 출력함수 끝
 
 
 } /*====================window.onload 끝 =======================*/
 
+const plus = (id) => {
+    const cartId = document.getElementById(id);
+
+
+}
+plus(id);
 
 
 /*================================= 02. 메뉴 뿌려주기 ====================================*/
