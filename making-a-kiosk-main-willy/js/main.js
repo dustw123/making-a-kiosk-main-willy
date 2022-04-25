@@ -48,41 +48,58 @@ menu = {
 
 for(key in menu){
 
-    let test = menu[key];
+    let chooseItem = menu[key];
     let itemWrap = document.createElement('ul');
     itemWrap.className = `menu_area wrap__left menu_${key}`;
     itemWrap.id = `menu_${key}`;
 
-    // console.log(test);
+    // console.log(chooseItem);
 
-    for( let i = 0; i < test.length; i++){
+    for( let i = 0; i < chooseItem.length; i++){
 
+        //탭메뉴 리스트 만들기
         let itemList = document.createElement('li');
         itemList.className = 'menu';
 
+        //아이템 이름
         let menuName = document.createElement('p');
         menuName.className = 'menu_name';
-        menuName.innerText = test[i].name;
+        menuName.innerText = chooseItem[i].name;
         
-
+        //아이템 가격
         let menuPrice = document.createElement('p');
         menuPrice.className = 'menu_price';
-        menuPrice.innerText = test[i].price;
+        menuPrice.innerText = chooseItem[i].price;
         
+        //탭메뉴 리스트에 이름,가격 넣기
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
 
-        // console.log(test[i].name);
+        //우측 선택 메뉴 리스트 만들기
+        let showClickItem = document.createElement('div');
+        showClickItem.getElementsByClassName('wrap__cart');
+        showClickItem.innerText = chooseItem;
+
+        //우측 선택 메뉴 리스트에 정보 넣기
+        let showItemName = document.createElement('span');
+        showItemName.innerText = chooseItem[i];
+    
+        // showClickItem.appendChild(showItemName);
+        
+        // console.log(showClickItem);
+        console.log(chooseItem[i].name, chooseItem[i].price, chooseItem[i].num);
 
         itemList.addEventListener('click', function(){
-            clickMenu( {menuClickName:test[i].name, price:test[i].price, num : 1} )
+            clickMenu( {menuClickName:chooseItem[i].name, price:chooseItem[i].price, num : 1});
+            showChooseMenu();
         });
 
 
         itemWrap.appendChild(itemList);
 
-        // console.log(itemWrap);
-        
+
+    
+
 
         // 스코프 확인!!
 
@@ -100,21 +117,28 @@ for(key in menu){
 
 //클릭이벤트리스너 함수
 function clickMenu(e){
-
-    console.log(e);
+    // console.log(e);
     if(menuArray.length == 0){
         menuArray.push(e);
         console.log(menuArray);
     }else{
-        const addTest = menuArray.find((addMenu) => addMenu.menuClickName === e.menuClickName);
-        console.log(addTest);
-
-        if(addTest === undefined){
+        const addchooseItem = menuArray.find((addMenu) => addMenu.menuClickName === e.menuClickName);
+        console.log(addchooseItem);
+        if(addchooseItem === undefined){
             menuArray.push(e);
             console.log(menuArray);
         }
     }
-}
+}//클릭이벤트리스너 함수 끝
+
+
+
+
+//선택 메뉴 Dom 출력함수
+function showChooseMenu(select){
+
+
+}//선택 메뉴 Dom 출력함수 끝
 
 
 } /*====================window.onload 끝 =======================*/
@@ -148,10 +172,10 @@ function showMenu(subMenu){
         menuTea[0].style.display = "none"; 
         break;
 
-    }
 
+    }
+    // console.log(subMenu);
 
 } //showMenu() onclick함수 끝
-
 
 
