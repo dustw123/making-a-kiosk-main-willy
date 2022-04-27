@@ -140,7 +140,7 @@ function showChooseMenu(select){
 
 
     let html = `
-                <div class="cart_item ${select.menuClickId}_cart ">
+                <div class="cart_item ${select.menuClickId}">
                     <div class="top">
                         <span>${select.menuClickName}</span>
                         <button type="button" class="delete">X</button>
@@ -148,7 +148,7 @@ function showChooseMenu(select){
                     <div class="middle">
                         <span>수량</span>
                         <div class="wrap__quantity">
-                            <button type="button" class="plus" onclick={plus(${select.menuClickId}_cart)}>+</button>
+                            <button type="button" class="plus" onclick="plus('${select.menuClickId}')">+</button>
                             <span class="item_quantity">${select.num}</span>
                             <button type="button" class="minus">-</button>
                         </div>
@@ -168,12 +168,21 @@ showClickItem[0].insertAdjacentHTML("beforeend",html);
 
 } /*====================window.onload 끝 =======================*/
 
-const plus = (id) => {
-    const cartId = document.getElementById(id);
+const plus = (className) => {
+
+    const cartId = document.getElementById(className);
+    let itemCount = document.getElementsByClassName('item_quantity');
+    itemCount.innerText='${select.num}';
+    // className.appendChild(itemCount);
+
+
+    for(let i = 0; i < itemCount.length; i++){
+        console.log(i);
+    }
 
 
 }
-plus(id);
+// plus(id);
 
 
 /*================================= 02. 메뉴 뿌려주기 ====================================*/
