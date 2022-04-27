@@ -1,11 +1,11 @@
+let totalCount = 0;
+let totalPrice = 0;
 
-
+let menuArray = [];
 
 window.onload = () => {
 
 /*================================= 01. 메뉴 객체 만들기 ====================================*/
-
-let menuArray = [];
 
 menu = {
     coffee : [
@@ -75,11 +75,8 @@ for(key in menu){
         itemList.appendChild(menuName);
         itemList.appendChild(menuPrice);
 
-
-
     
-        // showClickItem.appendChild(showItemName);
-        
+        // showClickItem.appendChild(showItemName);        
         // console.log(showClickItem);
         console.log(chooseItem[i].name, chooseItem[i].price, chooseItem[i].num);
 
@@ -87,29 +84,18 @@ for(key in menu){
             clickMenu( {menuClickId:chooseItem[i].id, menuClickName:chooseItem[i].name, price:chooseItem[i].price, num : 1});
             // showChooseMenu();
         });
-
-
         itemWrap.appendChild(itemList);
-
-
-    
-
-
         // 스코프 확인!!
-
     } //for문 끝
 
     let menuWrap = document.getElementById('tabList');
     menuWrap.appendChild(itemWrap);
 
     // console.log(menuWrap);
-
-
-
 } //for in 끝
 
 
-//클릭이벤트리스너 함수
+/*-----------클릭이벤트리스너 함수----------*/
 function clickMenu(e){
     // console.log(e);
     if(menuArray.length == 0){
@@ -131,16 +117,14 @@ function clickMenu(e){
 
 
 
-//선택 메뉴 Dom 출력함수
+/*-----------선택 메뉴 Dom 출력함수----------*/
 function showChooseMenu(select){
     // console.log(select);
     //우측 선택 메뉴 리스트 만들기
     let showClickItem = document.getElementsByClassName('wrap__cart');
 
-
-
     let html = `
-                <div class="cart_item ${select.menuClickId}">
+                <div id="cart_item_${select.menuClickId}" class="cart_item">
                     <div class="top">
                         <span>${select.menuClickName}</span>
                         <button type="button" class="delete">X</button>
@@ -148,14 +132,14 @@ function showChooseMenu(select){
                     <div class="middle">
                         <span>수량</span>
                         <div class="wrap__quantity">
-                            <button type="button" class="plus" onclick="plus('${select.menuClickId}')">+</button>
-                            <span class="item_quantity">${select.num}</span>
-                            <button type="button" class="minus">-</button>
+                            <button type="button" class="plus" onclick="plus(${select.menuClickId})">+</button>
+                            <span id="item_quantity_${select.menuClickId}" class="item_quantity">${select.num}</span>
+                            <button type="button" class="minus" onclick="minus(${select.menuClickId})">-</button>
                         </div>
                     </div>
                     <div class="bottom">
                         <span>가격</span>
-                        <span>${select.price}원</span>
+                        <span id="item_price_${select.menuClickId}" class="item_price">${select.price}원</span>
                     </div>
                 </div>
     `;
@@ -168,24 +152,59 @@ showClickItem[0].insertAdjacentHTML("beforeend",html);
 
 } /*====================window.onload 끝 =======================*/
 
-const plus = (className) => {
 
-    const cartId = document.getElementById(className);
-    let itemCount = document.getElementsByClassName('item_quantity');
-    itemCount.innerText='${select.num}';
+
+/*================================= 03. 장바구니 추가 ====================================*/
+//아이템 추가 함수
+const plus = (id) => {
+
+    // console.log(menuArray);
+
+    let selectedMenu = menuArray.find((menu) => menu.menuClickId == id);
+    
+    if(selectedMenu.num <= 1){
+        selectedMenu.price += selectedMenu.price;    
+    }else{
+        selectedMenu.price += selectedMenu.price/selectedMenu.num;        
+    }
+    selectedMenu.num += 1;
+
+    // console.log(test);
+    // const cartId = document.getElementById(id);
+    let itemCount = document.getElementById('item_quantity_' + id);
+    itemCount.innerText= selectedMenu.num;
+
+    let itemPrice = document.getElementById('item_price_' + id);
+    itemPrice.innerText = selectedMenu.price + '원';
+
+    console.log(selectedMenu.price, selectedMenu.num);
+    // console.log(itemCount);
     // className.appendChild(itemCount);
+}
 
-
-    for(let i = 0; i < itemCount.length; i++){
-        console.log(i);
+//아이템 빼기 함수
+const minus = (id) =>{
+    let selectedMenu = menuArray.find((menu) => menu.menuClickId == id);
+    
+    if(selectedMenu.num > 1){
+        selectedMenu.price -= selectedMenu.price/selectedMenu.num;    
+        selectedMenu.num -= 1;
+    }else if(selectedMenu.num = 1){
+        selectedMenu.price = selectedMenu.price;     
+        selectedMenu.num = 1;
     }
 
+    let itemCount = document.getElementById('item_quantity_' + id);
+    itemCount.innerText= selectedMenu.num;
+
+    let itemPrice = document.getElementById('item_price_' + id);
+    itemPrice.innerText = selectedMenu.price + '원';
+
+    console.log(selectedMenu.price, selectedMenu.num);
 
 }
-// plus(id);
 
-
-/*================================= 02. 메뉴 뿌려주기 ====================================*/
+/*================================= 02. 탭 메뉴 뿌려주기 ====================================*/
 
 function showMenu(subMenu){
 
@@ -218,4 +237,5 @@ function showMenu(subMenu){
 
 } //showMenu() onclick함수 끝
 
-
+/*================================= 04. 장바구니 총 합계 ====================================*/
+let arr = [];
