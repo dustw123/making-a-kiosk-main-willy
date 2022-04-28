@@ -2,6 +2,7 @@ let totalCount = 0;
 let totalPrice = 0;
 
 let menuArray = [];
+let selectedArr = [];
 
 window.onload = () => {
 
@@ -102,7 +103,7 @@ function clickMenu(e){
         menuArray.push(e);
         console.log(menuArray);
         showChooseMenu(e)
-
+        
     }else{
         const addchooseItem = menuArray.find((addMenu) => addMenu.menuClickName === e.menuClickName);
         console.log(addchooseItem);
@@ -238,4 +239,21 @@ function showMenu(subMenu){
 } //showMenu() onclick함수 끝
 
 /*================================= 04. 장바구니 총 합계 ====================================*/
-let arr = [];
+
+
+//최상단에 작성된 문법은 window가 실행될 때 먼저 실행되고 끝난다. 그래서 click이벤트가 발생할 때 실행이 안됨.
+//그래서 function으로 묶어서 click이벤트가 발생할 때 해당 function을 불러와서 사용해야 한다.
+function total(totalPrice, totalcount){
+
+    const selectedItem = document.querySelectorAll('.cart_item');
+
+    selectedItem.forEach((item) => {
+        let itemId = item.id;
+        selectedArr.push(parseInt(itemId.substring(-1)));
+        //array에 값 불러올 땐 해당 배열에 담겨있는 오브젝트를 비우든지
+        //중복되는 id 값은 받아올 수 없게 if문을 만들든지 해야 한다. 안그러면 중복값이 생김.
+    });
+    
+
+}
+
