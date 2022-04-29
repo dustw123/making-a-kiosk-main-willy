@@ -240,7 +240,6 @@ function showMenu(subMenu){
 
 /*================================= 04. 장바구니 총 합계 ====================================*/
 
-
 //최상단에 작성된 문법은 window가 실행될 때 먼저 실행되고 끝난다. 그래서 click이벤트가 발생할 때 실행이 안됨.
 //그래서 function으로 묶어서 click이벤트가 발생할 때 해당 function을 불러와서 사용해야 한다.
 function total(totalPrice, totalcount){
