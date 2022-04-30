@@ -1,8 +1,9 @@
 let totalCount = 0;
 let totalPrice = 0;
 
-let menuArray = [];
 let selectedArr = [];
+let menuArray = [];
+
 
 window.onload = () => {
 
